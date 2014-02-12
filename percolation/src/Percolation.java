@@ -3,6 +3,7 @@ public class Percolation {
 
     private boolean[] openSites;
     private WeightedQuickUnionUF connections;
+    private WeightedQuickUnionUF fullConnections;
     private int count;
 
     public Percolation(int N) {
@@ -11,8 +12,10 @@ public class Percolation {
         }
         count = N;
         connections = new WeightedQuickUnionUF(count * count + 2); //the last two elements are top and down dummies
+        fullConnections = new WeightedQuickUnionUF(count * count + 1);
         for (int i = 1; i <= count; i++) {
             connections.union(topDummyIndex(), index(1, i));
+            fullConnections.union(topDummyIndex(), index(1, i));
             if (count > 1) {
                 connections.union(bottomDummyIndex(), index(count, i));
             }
@@ -31,6 +34,9 @@ public class Percolation {
         if (isOutOfBounds(i, j)) {
             throw (new IndexOutOfBoundsException());
         }
+        if (count == 1) {
+            connections.union(index(1, 1), bottomDummyIndex());
+        }
         openSites[index(i, j)] = true;
         connectIfOpen(i, j, -1, 0);
         connectIfOpen(i, j, 1, 0);
@@ -42,7 +48,7 @@ public class Percolation {
         if (isOutOfBounds(i, j)) {
             throw (new IndexOutOfBoundsException());
         }
-        return isOpen(i, j) && (connections.find(index(i, j)) == connections.find(topDummyIndex()));
+        return isOpen(i, j) && (fullConnections.find(index(i, j)) == fullConnections.find(topDummyIndex()));
     }
 
     public boolean percolates() {
@@ -55,6 +61,7 @@ public class Percolation {
         }
         if (isOpen(i - offsetI, j - offsetJ)) {
             connections.union(index(i, j), index(i - offsetI, j - offsetJ));
+            fullConnections.union(index(i, j), index(i - offsetI, j - offsetJ));
         }
     }
 

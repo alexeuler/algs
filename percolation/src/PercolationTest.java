@@ -31,7 +31,10 @@ public class PercolationTest {
     public void Fixture3() {
         Percolation p = new Percolation(1);
         assertFalse(p.percolates());
+        p.open(1, 1);
+        assertTrue(p.percolates());
     }
+
     @Test
     public void isFull() {
         Percolation p = new Percolation(3);
@@ -44,6 +47,10 @@ public class PercolationTest {
         p.open(1, 2);
         assertTrue(p.isFull(1, 2));
         assertTrue(p.isFull(2, 2));
+    }
+
+    @Test
+    public void corner() {
     }
 
 }
