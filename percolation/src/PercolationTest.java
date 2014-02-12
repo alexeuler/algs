@@ -28,6 +28,11 @@ public class PercolationTest {
     }
 
     @Test
+    public void Fixture3() {
+        Percolation p = new Percolation(1);
+        assertFalse(p.percolates());
+    }
+    @Test
     public void isFull() {
         Percolation p = new Percolation(3);
         assertFalse(p.isFull(2, 2));

@@ -1,6 +1,6 @@
 public class PercolationStats {
 
-    private double results[];
+    private double[] results;
 
     public PercolationStats(int N, int T) {
         if ((N <= 0) || (T <= 0)) {

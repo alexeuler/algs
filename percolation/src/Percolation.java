@@ -13,7 +13,9 @@ public class Percolation {
         connections = new WeightedQuickUnionUF(count * count + 2); //the last two elements are top and down dummies
         for (int i = 1; i <= count; i++) {
             connections.union(topDummyIndex(), index(1, i));
-            connections.union(bottomDummyIndex(), index(count, i));
+            if (count > 1) {
+                connections.union(bottomDummyIndex(), index(count, i));
+            }
         }
         openSites = new boolean[count * count];
     }
