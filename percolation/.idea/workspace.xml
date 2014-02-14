@@ -67,7 +67,7 @@
       <file leaf-file-name="Percolation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Percolation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="26" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="2403">
+            <state line="6" column="22" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1513">
               <folding />
             </state>
           </provider>
@@ -76,7 +76,7 @@
       <file leaf-file-name="PercolationTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PercolationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0" vertical-offset="891" max-vertical-offset="1674">
+            <state line="45" column="0" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1054">
               <folding />
             </state>
           </provider>
@@ -85,7 +85,7 @@
       <file leaf-file-name="PercolationStats.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PercolationStats.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="5" selection-start="414" selection-end="414" vertical-scroll-proportion="0.41853034" vertical-offset="170" max-vertical-offset="1728">
+            <state line="16" column="5" selection-start="414" selection-end="414" vertical-scroll-proportion="0.059907835" vertical-offset="220" max-vertical-offset="1088">
               <folding />
             </state>
           </provider>
@@ -101,15 +101,17 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/PercolationStats.java" />
         <option value="$PROJECT_DIR$/src/PercolationTest.java" />
         <option value="$PROJECT_DIR$/src/Percolation.java" />
+        <option value="$PROJECT_DIR$/src/PercolationStats.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="x" value="145" />
+    <option name="y" value="9" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -301,6 +303,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -326,19 +341,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -436,7 +438,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
+    <frame x="145" y="9" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -486,6 +488,27 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Percolation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="22" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PercolationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="813" selection-end="813" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PercolationStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="5" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Percolation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="26" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2403">
@@ -736,21 +759,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Percolation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="26" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2403">
+        <state line="6" column="22" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1513">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PercolationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0" vertical-offset="717" max-vertical-offset="1620">
+        <state line="45" column="0" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PercolationStats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="5" selection-start="414" selection-end="414" vertical-scroll-proportion="0.41853034" vertical-offset="170" max-vertical-offset="1728">
+        <state line="16" column="5" selection-start="414" selection-end="414" vertical-scroll-proportion="0.059907835" vertical-offset="220" max-vertical-offset="1088">
           <folding />
         </state>
       </provider>
