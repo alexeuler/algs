@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
  */
 public class RandomizedQueue<Item> implements Iterable<Item> {
     private int INITIAL_LENGTH = 8;
-    private Item[] data =(Item[]) new Object[INITIAL_LENGTH];
+    private Item[] data = (Item[]) new Object[INITIAL_LENGTH];
     private Integer[] index = new Integer[INITIAL_LENGTH];
     private int size = 0; //number of non-null elements
     private int last = 0; //pointer to the last element + 1 in data, e.g. for [1, null, 20. null, 50] - last = 5, size = 3
@@ -21,35 +21,45 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public Item sample() {
-        if (isEmpty()) {throw new NoSuchElementException();}
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
         int number = StdRandom.uniform(size);
         int randomIndex = index[number];
         return data[randomIndex];
     }
 
-    public void enqueue(Item item){
-        if (item == null) {throw new NullPointerException();}
+    public void enqueue(Item item) {
+        if (item == null) {
+            throw new NullPointerException();
+        }
         data[last] = item;
         index[size()] = last;
         last++;
         size++;
-        if (last+1 >= data.length) {allocMemory();}
+        if (last + 1 >= data.length) {
+            allocMemory();
+        }
     }
 
     public Item dequeue() {
-        if (isEmpty()) {throw new NoSuchElementException();}
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
         int number = StdRandom.uniform(size);
         int randomIndex = index[number];
-        Item result=data[randomIndex];
+        Item result = data[randomIndex];
 
         size--;
         //removing the index and data entry
         //for index delete the entry and put the last entry in its place
         //for data just delete the entry
         index[number] = index[size()];
-        index[size()]=null;
-        data[randomIndex]=null;
-        if ((size()*4 <=data.length) && (size()>INITIAL_LENGTH)) {compact();}
+        index[size()] = null;
+        data[randomIndex] = null;
+        if ((size() * 4 <= data.length) && (size() > INITIAL_LENGTH)) {
+            compact();
+        }
         return result;
     }
 
@@ -72,7 +82,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private void compact() {
         int new_length = data.length / 2;
-        Item[] new_data = (Item []) new Object[new_length];
+        Item[] new_data = (Item[]) new Object[new_length];
         Integer[] new_index = new Integer[new_length];
         int i = 0;
         int j = 0;
@@ -88,7 +98,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         last = size() - 1;
         index = new_index;
     }
-
 
 
     private class RandomizedQueueIterator implements Iterator<Item> {
