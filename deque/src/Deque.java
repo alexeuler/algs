@@ -12,6 +12,7 @@ public class Deque<Item> implements Iterable<Item> {
     private Node first;
     private Node last;
     private int size = 0;
+    private boolean changed; //for iterator management
 
     public Deque() {
     }
@@ -25,6 +26,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public void addFirst(Item data) {
+        changed = true;
         switch (size()) {
             case 0:
                 first = new Node(data);
@@ -45,6 +47,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public void addLast(Item data) {
+        changed = true;
         switch (size()) {
             case 0:
                 first = new Node(data);
@@ -66,6 +69,7 @@ public class Deque<Item> implements Iterable<Item> {
 
 
     public Item removeFirst() {
+        changed = true;
         Item data;
         switch (size()) {
             case 0:
@@ -95,6 +99,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public Item removeLast() {
+        changed = true;
         Item data;
         switch (size()) {
             case 0:
@@ -136,6 +141,10 @@ public class Deque<Item> implements Iterable<Item> {
     private class DequeIterator implements Iterator<Item> {
         private Node current = first;
 
+        public DequeIterator(){
+            changed = false;
+        }
+
         public boolean hasNext() {
             return current != null;
         }
@@ -145,6 +154,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         public Item next() {
+            if (changed) {throw new RuntimeException();}
             Item data = current.data;
             current = current.next;
             return data;

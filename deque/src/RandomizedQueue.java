@@ -10,6 +10,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private Integer[] index = new Integer[INITIAL_LENGTH];
     private int size = 0; //number of non-null elements
     private int last = 0; //pointer to the last element + 1 in data, e.g. for [1, null, 20. null, 50] - last = 5, size = 3
+    private boolean changed; //for iterator management
 
 
     public int size() {
@@ -30,6 +31,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public void enqueue(Item item) {
+        changed = true;
         if (item == null) {
             throw new NullPointerException();
         }
@@ -43,6 +45,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public Item dequeue() {
+        changed = true;
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
@@ -105,6 +108,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         private int[] iteratorIndex;
 
         public RandomizedQueueIterator() {
+            changed = false;
             iteratorIndex = new int[size()];
             int i = 0;
             int j = 0;
@@ -126,6 +130,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next() {
+            if (changed) {throw new RuntimeException();}
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
