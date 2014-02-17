@@ -1,5 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -29,10 +33,10 @@ public class RandomizedQueueTest {
     }
 
     @Test
-    public void testTenElement() throws Exception {
+    public void testManyElements() throws Exception {
         assertTrue(queue.isEmpty());
         assertTrue(queue.size() == 0);
-        int number = 100;
+        int number = 1000;
         for (int i=0; i < number; i++) {
             queue.enqueue(((Integer)i).toString());
         }
@@ -42,11 +46,17 @@ public class RandomizedQueueTest {
             assertTrue(data.equals(i.toString()));
             i++;
         }
+        assertTrue(i == queue.size());
+        String[] results = new String[number];
         for (i=0; i<number; i++) {
-            System.out.println(i);
-            queue.dequeue();
+            results[i]=queue.dequeue();
         }
         assertTrue(queue.isEmpty());
+        assertTrue(results.length == number);
+        List<String> list = Arrays.asList(results);
+        for (i=0; i<number; i++) {
+            assertTrue(list.contains(i.toString()));
+        }
     }
 
     @Test
