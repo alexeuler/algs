@@ -5,9 +5,9 @@ public class Subset {
 
     public static void main(String[] args) {
         RandomizedQueue<String> queue = new RandomizedQueue<String>();
-        String line;
-        while ((line = StdIn.readString()) != null) {
-            queue.enqueue(line);
+        String line = StdIn.readLine();
+        for (String data : line.split(" ")) {
+            queue.enqueue(data);
         }
         int k = Integer.parseInt(args[0]);
         for (int i = 0; i < k; i++) {

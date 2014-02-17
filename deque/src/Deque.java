@@ -1,6 +1,3 @@
-import org.omg.CosNaming._NamingContextImplBase;
-import org.omg.DynamicAny._DynFixedStub;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -26,11 +23,14 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public void addFirst(Item data) {
+        if (data == null) {
+            throw new NullPointerException();
+        }
         changed = true;
         switch (size()) {
             case 0:
                 first = new Node(data);
-                last=first;
+                last = first;
                 break;
             case 1:
                 first = new Node(data);
@@ -40,18 +40,21 @@ public class Deque<Item> implements Iterable<Item> {
             default:
                 Node oldFirst = first;
                 first = new Node(data);
-                first.next=oldFirst;
-                oldFirst.prev=first;
+                first.next = oldFirst;
+                oldFirst.prev = first;
         }
         size++;
     }
 
     public void addLast(Item data) {
+        if (data == null) {
+            throw new NullPointerException();
+        }
         changed = true;
         switch (size()) {
             case 0:
                 first = new Node(data);
-                last=first;
+                last = first;
                 break;
             case 1:
                 last = new Node(data);
@@ -61,8 +64,8 @@ public class Deque<Item> implements Iterable<Item> {
             default:
                 Node oldLast = last;
                 last = new Node(data);
-                oldLast.next=last;
-                last.prev=oldLast;
+                oldLast.next = last;
+                last.prev = oldLast;
         }
         size++;
     }
@@ -78,16 +81,14 @@ public class Deque<Item> implements Iterable<Item> {
                 data = first.data;
                 first = null;
                 last = null;
-                size--;
                 break;
             case 2:
                 data = first.data;
-                first=last;
+                first = last;
                 first.next = null;
                 first.prev = null;
                 last.next = null;
                 last.prev = null;
-                size --;
                 break;
             default:
                 data = first.data;
@@ -95,6 +96,7 @@ public class Deque<Item> implements Iterable<Item> {
                 first.prev = null;
                 break;
         }
+        size--;
         return data;
     }
 
@@ -108,16 +110,14 @@ public class Deque<Item> implements Iterable<Item> {
                 data = first.data;
                 first = null;
                 last = null;
-                size--;
                 break;
             case 2:
                 data = last.data;
-                last=first;
+                last = first;
                 first.next = null;
                 first.prev = null;
                 last.next = null;
                 last.prev = null;
-                size --;
                 break;
             default:
                 data = last.data;
@@ -125,9 +125,9 @@ public class Deque<Item> implements Iterable<Item> {
                 last.next = null;
                 break;
         }
+        size--;
         return data;
     }
-
 
 
     public Iterator<Item> iterator() {
@@ -141,7 +141,7 @@ public class Deque<Item> implements Iterable<Item> {
     private class DequeIterator implements Iterator<Item> {
         private Node current = first;
 
-        public DequeIterator(){
+        public DequeIterator() {
             changed = false;
         }
 
@@ -154,20 +154,37 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            if (changed) {throw new RuntimeException();}
-            Item data = current.data;
-            current = current.next;
+            if (changed) {
+                throw new RuntimeException();
+            }
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            Item data = current.getData();
+            current = current.getNext();
             return data;
         }
     }
 
     private class Node {
-        public Node next;
-        public Node prev;
-        public Item data;
+        private Node next;
+        private Node prev;
+        private Item data;
 
         public Node(Item payload) {
             data = payload;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+
+        public Node getPrev() {
+            return prev;
+        }
+
+        public Item getData() {
+            return data;
         }
     }
 

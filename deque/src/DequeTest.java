@@ -14,10 +14,10 @@ public class DequeTest {
     Deque<String> deque;
 
     private String[] dequeToArray(Deque<String> deq) {
-        String[] arr=new String[deq.size()];
-        int i=0;
+        String[] arr = new String[deq.size()];
+        int i = 0;
         for (String s : deq) {
-            arr[i++]=s;
+            arr[i++] = s;
         }
         return arr;
     }
@@ -39,10 +39,10 @@ public class DequeTest {
         deque.addFirst("1");
         assertFalse(deque.isEmpty());
         assertTrue(deque.size() == 1);
-        String[] expected = new String[] {"1"};
+        String[] expected = new String[]{"1"};
         assertArrayEquals(expected, dequeToArray(deque));
         deque.addFirst("2");
-        expected = new String[] {"2", "1"};
+        expected = new String[]{"2", "1"};
         assertArrayEquals(expected, dequeToArray(deque));
     }
 
@@ -51,14 +51,14 @@ public class DequeTest {
         deque.addLast("1");
         assertFalse(deque.isEmpty());
         assertTrue(deque.size() == 1);
-        String[] expected = new String[] {"1"};
+        String[] expected = new String[]{"1"};
         assertArrayEquals(expected, dequeToArray(deque));
         deque.addLast("2");
-        expected = new String[] {"1", "2"};
+        expected = new String[]{"1", "2"};
         assertArrayEquals(expected, dequeToArray(deque));
     }
 
-    @Test(expected=NoSuchElementException.class)
+    @Test(expected = NoSuchElementException.class)
     public void testRemoveFirstWhenEmpty() throws Exception {
         deque.removeFirst();
     }
@@ -76,7 +76,7 @@ public class DequeTest {
         assertTrue(deque.isEmpty());
     }
 
-    @Test(expected=NoSuchElementException.class)
+    @Test(expected = NoSuchElementException.class)
     public void testRemoveLastWhenEmpty() throws Exception {
         deque.removeLast();
     }
@@ -99,14 +99,14 @@ public class DequeTest {
         deque.addFirst("1");
         deque.addLast("2");
         String[] res = new String[4];
-        int k=0;
+        int k = 0;
         for (String i : deque) {
             for (String j : deque) {
                 res[k] = i + " " + j;
                 k++;
             }
         }
-        String[] expected = new String[] {"1 1","1 2", "2 1", "2 2"};
+        String[] expected = new String[]{"1 1", "1 2", "2 1", "2 2"};
         assertArrayEquals(expected, res);
     }
 }

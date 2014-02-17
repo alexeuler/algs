@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
  * Created by Алексей Карасев on 14.02.14.
  */
 public class RandomizedQueue<Item> implements Iterable<Item> {
-    private int INITIAL_LENGTH = 8;
+    private int INITIAL_LENGTH = 2;
     private Item[] data = (Item[]) new Object[INITIAL_LENGTH];
     private Integer[] index = new Integer[INITIAL_LENGTH];
     private int size = 0; //number of non-null elements
@@ -31,6 +31,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public void enqueue(Item item) {
+        if (last >= data.length) {
+            allocMemory();
+        }
         changed = true;
         if (item == null) {
             throw new NullPointerException();
@@ -39,9 +42,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         index[size()] = last;
         last++;
         size++;
-        if (last + 1 >= data.length) {
-            allocMemory();
-        }
     }
 
     public Item dequeue() {
@@ -73,33 +73,33 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private void allocMemory() {
         int newLength = data.length * 2;
-        Item[] new_data = (Item[]) new Object[newLength];
-        Integer[] new_index = new Integer[newLength];
+        Item[] newData = (Item[]) new Object[newLength];
+        Integer[] newIndex = new Integer[newLength];
         for (int i = 0; i < data.length; i++) {
-            new_data[i] = data[i];
-            new_index[i] = index[i];
+            newData[i] = data[i];
+            newIndex[i] = index[i];
         }
-        data = new_data;
-        index = new_index;
+        data = newData;
+        index = newIndex;
     }
 
     private void compact() {
-        int new_length = data.length / 2;
-        Item[] new_data = (Item[]) new Object[new_length];
-        Integer[] new_index = new Integer[new_length];
+        int newLength = data.length / 2;
+        Item[] newData = (Item[]) new Object[newLength];
+        Integer[] newIndex = new Integer[newLength];
         int i = 0;
         int j = 0;
         while (j < data.length) {
             if (data[j] != null) {
-                new_data[i] = data[j];
-                new_index[i] = i;
+                newData[i] = data[j];
+                newIndex[i] = i;
                 i++;
             }
             j++;
         }
-        data = new_data;
+        data = newData;
         last = size() - 1;
-        index = new_index;
+        index = newIndex;
     }
 
 
@@ -109,6 +109,15 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         public RandomizedQueueIterator() {
             changed = false;
+            // This is the random iteration realization
+            iteratorIndex = new int[size()];
+            for (int i = 0; i < size(); i++) {
+                iteratorIndex[i] = index[i];
+            }
+            StdRandom.shuffle(iteratorIndex);
+            // This is the realization if you want to preserve the structure over each iteration
+            // This structure is used in integration tests
+            /*
             iteratorIndex = new int[size()];
             int i = 0;
             int j = 0;
@@ -118,7 +127,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
                     i++;
                 }
                 j++;
-            }
+            }*/
         }
 
         public void remove() {
@@ -130,7 +139,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            if (changed) {throw new RuntimeException();}
+            if (changed) {
+                throw new RuntimeException();
+            }
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
