@@ -5,8 +5,8 @@ import java.util.NoSuchElementException;
  * Created by Алексей Карасев on 14.02.14.
  */
 public class RandomizedQueue<Item> implements Iterable<Item> {
-    private Data<Item> data;
-    private Index<Integer> index;
+    private Data<Item> data = new Data<Item>();
+    private Index index = new Index();
 
     public Iterator<Item> iterator() {
         return new RandomizedQueueIterator();
@@ -27,15 +27,18 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public Item dequeue() {
-        int number = StdRandom.uniform(size());
+        if (isEmpty()) {throw new NoSuchElementException();}
+        int number = StdRandom.uniform(index.size());
         int randomIndex = index.get(number);
         Item result=data.get(randomIndex);
         data.remove(randomIndex);
+        index.remove(number);
         return result;
     }
 
     public void enqueue(Item item){
         data.push(item);
+        index.push(data.size-1);
     }
 
 
@@ -68,13 +71,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-            return data.get(iteratorIndex[++current]);
+            return data.get(iteratorIndex[current++]);
         }
     }
 
     private class ResizableArray<Tuple> {
 
-        private int INITIAL_LENGTH = 1;
+        private int INITIAL_LENGTH = 8;
         protected Tuple[] data;
         protected int size = 0; //this is the number of non-null elements
 
@@ -84,19 +87,23 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public void push() {
-            if (size + 1 == data.length) {
+            if (size + 1 >= data.length) {
                 lengthUp();
             }
         }
 
         public void remove() {
-            if (size * 4 <= data.length) {
+            if ((size * 4 <= data.length)&&(size >= INITIAL_LENGTH)) {
                 lengthDown();
             }
         }
 
         public Tuple get(int i) {
             return data[i];
+        }
+
+        public void set(int i, Tuple item) {
+            data[i] = item;
         }
 
         public int size() {
@@ -113,8 +120,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         private void lengthDown() {
-            if (data.length == 1) return;
-            int newLength = (int) (data.length / 2);
+            if (data.length <= INITIAL_LENGTH) return;
+            int newLength = (int) ((double) data.length / 2);
             Tuple[] new_data = (Tuple[]) new Object[newLength];
             for (int i = 0; i < newLength; i++) {
                 new_data[i] = data[i];
@@ -124,19 +131,21 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     }
 
-    private class Index<Tuple> extends ResizableArray<Tuple> {
+    private class Index extends ResizableArray<Integer> {
         // no nulls in the middle, if deleted from the middle, last element goes to the empty place
         public void remove(int i) {
             if (size == 0) {
                 throw new NoSuchElementException();
             }
-            data[i] = data[size--];
-            data[size] = null;
+            size--;
+            set(i, get(size));
+            set(size, null);
             super.remove();
         }
 
-        public void push(Tuple elem) {
-            data[++size] = elem;
+        public void push(int item) {
+            set(size, item);
+            size++;
             super.push();
         }
     }
@@ -148,12 +157,28 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             }
             data[i] = null;
             size--;
-            super.remove();
+            if ((size * 4 <= data.length)&&(size >= super.INITIAL_LENGTH)){
+                compact();
+            }
         }
 
         public void push(Tuple elem) {
-            data[++size] = elem;
+            data[size++] = elem;
             super.push();
+        }
+
+        private void compact() {
+            Tuple [] new_data = (Tuple []) new Object[size()];
+            int i = 0;
+            int j = 0;
+            while (j < size()) {
+                if (data[j] != null) {
+                    new_data[i] = data[j];
+                    i++;
+                }
+                j++;
+            }
+            data = new_data;
         }
     }
 
