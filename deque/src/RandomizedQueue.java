@@ -12,7 +12,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private int last = 0; //pointer to the last element + 1 in data, e.g. for [1, null, 20. null, 50] - last = 5, size = 3
     private boolean changed; //for iterator management
 
-
     public int size() {
         return size;
     }
@@ -99,7 +98,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
         size = i;
         data = newData;
-        last = size() - 1;
+        last = size();
         index = newIndex;
     }
 

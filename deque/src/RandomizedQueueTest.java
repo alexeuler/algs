@@ -4,7 +4,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Алексей Карасев on 14.02.14.
@@ -69,13 +69,13 @@ public class RandomizedQueueTest {
                     break;
                 case 1:
                     if (!queue.isEmpty()) {
-                        String s=queue.dequeue();
+                        String s = queue.dequeue();
                         assertTrue(s.equals("1"));
                     }
                     break;
                 default:
                     if (!queue.isEmpty()) {
-                        String s=queue.dequeue();
+                        String s = queue.sample();
                         assertTrue(s.equals("1"));
                     }
                     break;
