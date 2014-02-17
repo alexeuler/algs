@@ -37,30 +37,44 @@ public class RandomizedQueueTest {
         assertTrue(queue.isEmpty());
         assertTrue(queue.size() == 0);
         int number = 1000;
-        for (int i=0; i < number; i++) {
-            queue.enqueue(((Integer)i).toString());
+        for (int i = 0; i < number; i++) {
+            queue.enqueue(((Integer) i).toString());
         }
         assertTrue(queue.size() == number);
         Integer i = 0;
         for (String data : queue) {
-            assertTrue(data.equals(i.toString()));
             i++;
         }
         assertTrue(i == queue.size());
         String[] results = new String[number];
-        for (i=0; i<number; i++) {
-            results[i]=queue.dequeue();
+        for (i = 0; i < number; i++) {
+            results[i] = queue.dequeue();
         }
         assertTrue(queue.isEmpty());
         assertTrue(results.length == number);
+        Arrays.sort(results);
         List<String> list = Arrays.asList(results);
-        for (i=0; i<number; i++) {
+        for (i = 0; i < number; i++) {
             assertTrue(list.contains(i.toString()));
         }
     }
 
     @Test
-    public void testRandomness() throws Exception {
+    public void testRandomCalls() throws Exception {
+        for (int i = 0; i < 1000; i++) {
+            int rand = StdRandom.uniform(5);
+            switch (rand) {
+                case 0:
+                    queue.enqueue("1");
+                    break;
+                case 1:
+                    if (!queue.isEmpty()) {queue.dequeue();}
+                    break;
+                default:
+                    if (!queue.isEmpty()) {queue.sample();}
+                    break;
+            }
+        }
     }
 
 

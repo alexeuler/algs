@@ -25,7 +25,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        int number = StdRandom.uniform(size);
+        int number = StdRandom.uniform(size());
         int randomIndex = index[number];
         return data[randomIndex];
     }
@@ -72,7 +72,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
 
     private void allocMemory() {
-        int newLength = data.length * 2;
+        int newLength = Math.max((int) (data.length * 1.3), data.length + 1);
         Item[] newData = (Item[]) new Object[newLength];
         Integer[] newIndex = new Integer[newLength];
         for (int i = 0; i < data.length; i++) {
@@ -97,6 +97,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             }
             j++;
         }
+        size = i;
         data = newData;
         last = size() - 1;
         index = newIndex;

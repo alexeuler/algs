@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c74e314-5f85-411f-ac34-4dab6d26f9c4" name="Default" comment="1st round patch&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Deque.java" afterPath="$PROJECT_DIR$/src/Deque.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DequeTest.java" afterPath="$PROJECT_DIR$/src/DequeTest.java" />
+    <list default="true" id="4c74e314-5f85-411f-ac34-4dab6d26f9c4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RandomizedQueue.java" afterPath="$PROJECT_DIR$/src/RandomizedQueue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Subset.java" afterPath="$PROJECT_DIR$/src/Subset.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RandomizedQueueTest.java" afterPath="$PROJECT_DIR$/src/RandomizedQueueTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="queues.iws" />
@@ -61,6 +59,25 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <exception_breakpoints>
+      <breakpoint class_name="java.lang.NullPointerException" package_name="java.lang">
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </exception_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -73,16 +90,7 @@
       <file leaf-file-name="RandomizedQueue.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RandomizedQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="58" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.55074626" vertical-offset="2205" max-vertical-offset="3476">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StdRandom.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../lib/stdlib.jar!/StdRandom.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="23" selection-start="9924" selection-end="9924" vertical-scroll-proportion="0.0" vertical-offset="5519" max-vertical-offset="7304">
+            <state line="101" column="26" selection-start="2911" selection-end="2911" vertical-scroll-proportion="1.919403" vertical-offset="914" max-vertical-offset="3498">
               <folding />
             </state>
           </provider>
@@ -91,36 +99,9 @@
       <file leaf-file-name="RandomizedQueueTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RandomizedQueueTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="22" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2134">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Deque.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Deque.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="35" selection-start="4206" selection-end="4206" vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="4180">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DequeTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DequeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="16" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="2442">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Subset.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Subset.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="9" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="506">
+            <state line="86" column="35" selection-start="2272" selection-end="2272" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2442">
               <folding>
-                <element signature="e#178#186#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,10 +121,10 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/Dequeue.java" />
-        <option value="$PROJECT_DIR$/src/RandomizedQueueTest.java" />
         <option value="$PROJECT_DIR$/src/DequeTest.java" />
         <option value="$PROJECT_DIR$/src/Subset.java" />
         <option value="$PROJECT_DIR$/src/Deque.java" />
+        <option value="$PROJECT_DIR$/src/RandomizedQueueTest.java" />
         <option value="$PROJECT_DIR$/src/RandomizedQueue.java" />
       </list>
     </option>
@@ -253,7 +234,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Subset">
+  <component name="RunManager" selected="JUnit.RandomizedQueueTest">
     <configuration default="false" name="Subset" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Subset" />
       <option name="VM_PARAMETERS" value="" />
@@ -295,6 +276,34 @@
       <envs />
       <patterns />
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="RandomizedQueueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="algs" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RandomizedQueueTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -425,14 +434,16 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Subset" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.DequeTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RandomizedQueueTest" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Subset" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DequeTest" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.RandomizedQueueTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Subset" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DequeTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -484,7 +495,11 @@
       <created>1392640462560</created>
       <updated>1392640462560</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1st round patch&#10;">
+      <created>1392646502673</created>
+      <updated>1392646502673</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -558,7 +573,8 @@
     <MESSAGE value="finished subset" />
     <MESSAGE value="minor patch" />
     <MESSAGE value="minor patch&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor patch&#10;" />
+    <MESSAGE value="1st round patch&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st round patch&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -582,7 +598,9 @@
     <entry file="file://$PROJECT_DIR$/src/RandomizedQueueTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="22" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2134">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -619,7 +637,9 @@
     <entry file="file://$PROJECT_DIR$/src/RandomizedQueueTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="16" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="1078" max-vertical-offset="2134">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -640,7 +660,9 @@
     <entry file="file://$PROJECT_DIR$/src/RandomizedQueueTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="638" max-vertical-offset="1034">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -692,23 +714,9 @@
         <state line="130" column="25" selection-start="4308" selection-end="4308" vertical-scroll-proportion="0.3320965" vertical-offset="2527" max-vertical-offset="6578" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RandomizedQueueTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="22" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2134">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2353" column="20" selection-start="93245" selection-end="93245" vertical-scroll-proportion="0.3320965" vertical-offset="50861" max-vertical-offset="67672">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../lib/stdlib.jar!/StdRandom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="23" selection-start="9924" selection-end="9924" vertical-scroll-proportion="0.0" vertical-offset="5519" max-vertical-offset="7304">
           <folding />
         </state>
       </provider>
@@ -736,9 +744,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/stdlib.jar!/StdRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="305" column="23" selection-start="9924" selection-end="9924" vertical-scroll-proportion="0.2571839" vertical-offset="5519" max-vertical-offset="7304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/security/PrivilegedActionException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1844" selection-end="1844" vertical-scroll-proportion="0.3320965" vertical-offset="745" max-vertical-offset="1848">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/security/AccessController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="457" column="8" selection-start="17274" selection-end="17274" vertical-scroll-proportion="0.0" vertical-offset="9237" max-vertical-offset="11836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/jre/lib/rt.jar!/sun/misc/Launcher.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="31" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.0" vertical-offset="503" max-vertical-offset="1650">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="357" column="0" selection-start="13586" selection-end="13586" vertical-scroll-proportion="0.0" vertical-offset="6399" max-vertical-offset="48004">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/jre/lib/rt.jar!/sun/launcher/LauncherHelper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="37" selection-start="3072" selection-end="3072" vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="2442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/net/URLClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="365" column="0" selection-start="13550" selection-end="13550" vertical-scroll-proportion="0.3320965" vertical-offset="6773" max-vertical-offset="15994">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RandomizedQueueTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="35" selection-start="2272" selection-end="2272" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2442">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/RandomizedQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="58" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.55074626" vertical-offset="2205" max-vertical-offset="3476">
+        <state line="101" column="26" selection-start="2911" selection-end="2911" vertical-scroll-proportion="1.919403" vertical-offset="914" max-vertical-offset="3498">
           <folding />
         </state>
       </provider>
