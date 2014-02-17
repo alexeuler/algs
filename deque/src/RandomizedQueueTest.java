@@ -61,17 +61,23 @@ public class RandomizedQueueTest {
 
     @Test
     public void testRandomCalls() throws Exception {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             int rand = StdRandom.uniform(5);
             switch (rand) {
                 case 0:
                     queue.enqueue("1");
                     break;
                 case 1:
-                    if (!queue.isEmpty()) {queue.dequeue();}
+                    if (!queue.isEmpty()) {
+                        String s=queue.dequeue();
+                        assertTrue(s.equals("1"));
+                    }
                     break;
                 default:
-                    if (!queue.isEmpty()) {queue.sample();}
+                    if (!queue.isEmpty()) {
+                        String s=queue.dequeue();
+                        assertTrue(s.equals("1"));
+                    }
                     break;
             }
         }
