@@ -19,6 +19,7 @@ public class Point implements Comparable<Point> {
 
     private class SlopeOrder implements Comparator<Point> {
         public int compare(Point a, Point b) {
+            if ((a == null) || (b==null)) {throw new NullPointerException();}
             double slopeA = slopeTo(a);
             double slopeB = slopeTo(b);
             if (slopeA < slopeB) {
@@ -57,21 +58,23 @@ public class Point implements Comparable<Point> {
 
     // slope between this point and that point
     public double slopeTo(Point that) {
+        if (that == null) {throw new NullPointerException();}
         if (this.x != that.x) {
             if (this.y == that.y) {return 0;}
             return (double)(this.y - that.y) / (this.x - that.x);
         }
         else if (this.y == that.y) {
-            return Double.POSITIVE_INFINITY;
+            return Double.NEGATIVE_INFINITY;
         }
         else {
-            return Double.NEGATIVE_INFINITY;
+            return Double.POSITIVE_INFINITY;
         }
     }
 
     // is this point lexicographically smaller than that one?
     // comparing y-coordinates and breaking ties by x-coordinates
     public int compareTo(Point that) {
+        if (that == null) {throw new NullPointerException();}
         if (this.y < that.y) {
             return -1;
         }

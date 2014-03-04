@@ -2,6 +2,7 @@ import java.io.*;
 
 import static org.junit.Assert.*;
 
+//Replace StdOut with System.out for testing
 
 /**
  * Created by Алексей Карасев on 24.02.14.

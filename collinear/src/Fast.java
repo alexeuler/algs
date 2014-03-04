@@ -38,7 +38,15 @@ public class Fast {
 
     private static Point parse(String s) {
         String[] coords = s.split(" ");
-        Point p = new Point(Integer.parseInt(coords[0]), Integer.parseInt(coords[1]));
+        String[] refined = new String[2];
+        int i=0;
+        for (String str : coords) {
+            if (!str.equals("")) {
+                refined[i] = str;
+                i++;
+            }
+        }
+        Point p = new Point(Integer.parseInt(refined[0]), Integer.parseInt(refined[1]));
         return p;
     }
 
@@ -87,20 +95,28 @@ public class Fast {
         int i = 0;
         Arrays.sort(points);
         String result = "";
+        Point prev = null;
         for (Point p : points) {
+            p.draw();
+            if (i!=0) {
+                prev.drawTo(p);
+            }
             i++;
             if (i != points.length) {
                 result+= p.toString()+" -> ";
             }
+            prev = p;
         }
         result+=points[points.length - 1].toString() + "\n";
         if (!printed.has(result)){
-            System.out.print(result);
+            StdOut.print(result);
             printed.push(result);
         }
     }
 
     public static void main(String[] args) {
+        StdDraw.setXscale(0, 32768);
+        StdDraw.setYscale(0, 32768);
         In in = new In(args[0]);
         int n = Integer.parseInt(in.readLine());
         data = new Point[n];

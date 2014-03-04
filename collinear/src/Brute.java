@@ -36,24 +36,38 @@ public class Brute {
         Point[] out = new Point[] {p,q,r,s};
         Arrays.sort(out);
         for (int i=0; i<3; i++) {
-            System.out.print(out[i].toString());
-            System.out.print(" -> ");
+            out[i].draw();
+            out[i].drawTo(out[i+1]);
+            StdOut.print(out[i].toString());
+            StdOut.print(" -> ");
         }
-        System.out.print(out[3].toString() + "\n");
+        out[3].draw();
+        StdOut.print(out[3].toString() + "\n");
     }
 
     private static Point parse(String s) {
         String[] coords = s.split(" ");
-        Point p = new Point(Integer.parseInt(coords[0]), Integer.parseInt(coords[1]));
+        String[] refined = new String[2];
+        int i=0;
+        for (String str : coords) {
+            if (!str.equals("")) {
+                refined[i] = str;
+                i++;
+            }
+        }
+        Point p = new Point(Integer.parseInt(refined[0]), Integer.parseInt(refined[1]));
         return p;
     }
 
     public static void main(String[] args) {
+        StdDraw.setXscale(0, 32768);
+        StdDraw.setYscale(0, 32768);
         In in=new In(args[0]);
         int n = Integer.parseInt(in.readLine());
         data = new Point[n];
         for (int i=0; i < n; i++) {
-            data[i] = parse(in.readLine());
+            String str=in.readLine();
+            data[i] = parse(str);
         }
         find_and_print();
     }
