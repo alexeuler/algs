@@ -1,4 +1,3 @@
-import java.security.InvalidParameterException;
 import java.util.Arrays;
 
 /**
@@ -9,9 +8,6 @@ public class Brute {
     private static Point[] data;
 
     private static void find_and_print() {
-        if (data.length < 4) {
-            throw new InvalidParameterException();
-        }
         for (int i = 0; i < data.length; i++) {
             for (int j = i + 1; j < data.length; j++) {
                 for (int k = j + 1; k < data.length; k++) {
@@ -33,22 +29,25 @@ public class Brute {
     }
 
     private static void print(Point p, Point q, Point r, Point s) {
-        Point[] out = new Point[] {p,q,r,s};
+        Point[] out = new Point[]{p, q, r, s};
         Arrays.sort(out);
+        String result = "";
+        for (int i = 0; i < 3; i++) {
+            result += out[i].toString();
+            result += " -> ";
+        }
+        result += out[3].toString() + "\n";
+        StdOut.print(result);
         for (int i=0; i<3; i++) {
             out[i].draw();
-            out[i].drawTo(out[i+1]);
-            StdOut.print(out[i].toString());
-            StdOut.print(" -> ");
         }
-        out[3].draw();
-        StdOut.print(out[3].toString() + "\n");
+        out[0].drawTo(out[3]);
     }
 
     private static Point parse(String s) {
         String[] coords = s.split(" ");
         String[] refined = new String[2];
-        int i=0;
+        int i = 0;
         for (String str : coords) {
             if (!str.equals("")) {
                 refined[i] = str;
@@ -62,11 +61,11 @@ public class Brute {
     public static void main(String[] args) {
         StdDraw.setXscale(0, 32768);
         StdDraw.setYscale(0, 32768);
-        In in=new In(args[0]);
+        In in = new In(args[0]);
         int n = Integer.parseInt(in.readLine());
         data = new Point[n];
-        for (int i=0; i < n; i++) {
-            String str=in.readLine();
+        for (int i = 0; i < n; i++) {
+            String str = in.readLine();
             data[i] = parse(str);
         }
         find_and_print();

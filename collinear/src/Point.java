@@ -19,16 +19,16 @@ public class Point implements Comparable<Point> {
 
     private class SlopeOrder implements Comparator<Point> {
         public int compare(Point a, Point b) {
-            if ((a == null) || (b==null)) {throw new NullPointerException();}
+            if ((a == null) || (b == null)) {
+                throw new NullPointerException();
+            }
             double slopeA = slopeTo(a);
             double slopeB = slopeTo(b);
             if (slopeA < slopeB) {
                 return -1;
-            }
-            else if (slopeA == slopeB) {
+            } else if (slopeA == slopeB) {
                 return 0;
-            }
-            else {
+            } else {
                 return 1;
             }
         }
@@ -58,15 +58,17 @@ public class Point implements Comparable<Point> {
 
     // slope between this point and that point
     public double slopeTo(Point that) {
-        if (that == null) {throw new NullPointerException();}
+        if (that == null) {
+            throw new NullPointerException();
+        }
         if (this.x != that.x) {
-            if (this.y == that.y) {return 0;}
-            return (double)(this.y - that.y) / (this.x - that.x);
-        }
-        else if (this.y == that.y) {
+            if (this.y == that.y) {
+                return 0;
+            }
+            return (double) (this.y - that.y) / (this.x - that.x);
+        } else if (this.y == that.y) {
             return Double.NEGATIVE_INFINITY;
-        }
-        else {
+        } else {
             return Double.POSITIVE_INFINITY;
         }
     }
@@ -74,20 +76,18 @@ public class Point implements Comparable<Point> {
     // is this point lexicographically smaller than that one?
     // comparing y-coordinates and breaking ties by x-coordinates
     public int compareTo(Point that) {
-        if (that == null) {throw new NullPointerException();}
+        if (that == null) {
+            throw new NullPointerException();
+        }
         if (this.y < that.y) {
             return -1;
-        }
-        else if (this.y > that.y) {
+        } else if (this.y > that.y) {
             return 1;
-        }
-        else if (this.x < that.x) {
+        } else if (this.x < that.x) {
             return -1;
-        }
-        else if (this.x > that.x) {
+        } else if (this.x > that.x) {
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }

@@ -1,4 +1,3 @@
-import java.security.InvalidParameterException;
 import java.util.Arrays;
 
 /**
@@ -14,7 +13,7 @@ public class Fast {
         private Node next;
         private String data;
 
-        public Node (String init) {
+        public Node(String init) {
             this.data = init;
         }
 
@@ -29,7 +28,9 @@ public class Fast {
         public boolean has(String item) {
             Node pointer = this;
             while (pointer != null) {
-                if (pointer.data.equals(item)) {return true;}
+                if (pointer.data.equals(item)) {
+                    return true;
+                }
                 pointer = pointer.next;
             }
             return false;
@@ -39,7 +40,7 @@ public class Fast {
     private static Point parse(String s) {
         String[] coords = s.split(" ");
         String[] refined = new String[2];
-        int i=0;
+        int i = 0;
         for (String str : coords) {
             if (!str.equals("")) {
                 refined[i] = str;
@@ -51,9 +52,6 @@ public class Fast {
     }
 
     private static void findAndPrint() {
-        if (data.length < 4) {
-            throw new InvalidParameterException();
-        }
         printed = new Node("");
         for (Point p : data) {
             Arrays.sort(sorted_data, p.SLOPE_ORDER);
@@ -70,9 +68,9 @@ public class Fast {
                 continue;
             } else {
                 if (n >= 3) {
-                    Point[] collinear = new Point[n+1];
+                    Point[] collinear = new Point[n + 1];
                     for (int j = 0; j < n; j++) {
-                        collinear[j] = sorted_data[i-1-j];
+                        collinear[j] = sorted_data[i - 1 - j];
                     }
                     collinear[n] = p;
                     print(collinear);
@@ -81,11 +79,12 @@ public class Fast {
                 slope = p.slopeTo(sorted_data[i]);
             }
         }
-        if (n >= 4) {
-            Point[] collinear = new Point[n];
+        if (n >= 3) {
+            Point[] collinear = new Point[n + 1];
             for (int j = 0; j < n; j++) {
-                collinear[j] = sorted_data[sorted_data.length-1-j];
+                collinear[j] = sorted_data[sorted_data.length - 1 - j];
             }
+            collinear[n] = p;
             print(collinear);
         }
 
@@ -95,21 +94,19 @@ public class Fast {
         int i = 0;
         Arrays.sort(points);
         String result = "";
-        Point prev = null;
         for (Point p : points) {
-            p.draw();
-            if (i!=0) {
-                prev.drawTo(p);
-            }
             i++;
             if (i != points.length) {
-                result+= p.toString()+" -> ";
+                result += p.toString() + " -> ";
             }
-            prev = p;
         }
-        result+=points[points.length - 1].toString() + "\n";
-        if (!printed.has(result)){
+        result += points[points.length - 1].toString() + "\n";
+        if (!printed.has(result)) {
             StdOut.print(result);
+            for (Point p : points) {
+                p.draw();
+            }
+            points[0].drawTo(points[points.length - 1]);
             printed.push(result);
         }
     }
@@ -121,9 +118,15 @@ public class Fast {
         int n = Integer.parseInt(in.readLine());
         data = new Point[n];
         sorted_data = new Point[n];
-        for (int i = 0; i < n; i++) {
-            data[i] = parse(in.readLine());
+        int i = 0;
+        while (i < n) {
+            String line = in.readLine();
+            if ((line == null) || line.equals("")) {
+                continue;
+            }
+            data[i] = parse(line);
             sorted_data[i] = data[i];
+            i++;
         }
         findAndPrint();
     }
