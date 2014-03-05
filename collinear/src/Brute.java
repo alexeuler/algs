@@ -38,9 +38,6 @@ public class Brute {
         }
         result += out[3].toString() + "\n";
         StdOut.print(result);
-        for (int i=0; i<3; i++) {
-            out[i].draw();
-        }
         out[0].drawTo(out[3]);
     }
 
@@ -55,6 +52,7 @@ public class Brute {
             }
         }
         Point p = new Point(Integer.parseInt(refined[0]), Integer.parseInt(refined[1]));
+        p.draw();
         return p;
     }
 
@@ -62,7 +60,9 @@ public class Brute {
         StdDraw.setXscale(0, 32768);
         StdDraw.setYscale(0, 32768);
         In in = new In(args[0]);
-        int n = Integer.parseInt(in.readLine());
+        String line = in.readLine();
+        line = line.replace(" ", "");
+        int n = Integer.parseInt(line);
         data = new Point[n];
         for (int i = 0; i < n; i++) {
             String str = in.readLine();

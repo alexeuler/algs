@@ -11,18 +11,17 @@ public class Fast {
 
     private static class Node {
         private Node next;
+        private Node last;
         private String data;
 
         public Node(String init) {
             this.data = init;
+            this.last = this;
         }
 
         public void push(String item) {
-            Node pointer = this;
-            while (pointer.next != null) {
-                pointer = pointer.next;
-            }
-            pointer.next = new Node(item);
+            last.next = new Node(item);
+            last = last.next;
         }
 
         public boolean has(String item) {
@@ -48,6 +47,7 @@ public class Fast {
             }
         }
         Point p = new Point(Integer.parseInt(refined[0]), Integer.parseInt(refined[1]));
+        p.draw();
         return p;
     }
 
@@ -93,6 +93,7 @@ public class Fast {
     private static void print(Point[] points) {
         int i = 0;
         Arrays.sort(points);
+
         String result = "";
         for (Point p : points) {
             i++;
@@ -103,9 +104,6 @@ public class Fast {
         result += points[points.length - 1].toString() + "\n";
         if (!printed.has(result)) {
             StdOut.print(result);
-            for (Point p : points) {
-                p.draw();
-            }
             points[0].drawTo(points[points.length - 1]);
             printed.push(result);
         }
@@ -115,12 +113,14 @@ public class Fast {
         StdDraw.setXscale(0, 32768);
         StdDraw.setYscale(0, 32768);
         In in = new In(args[0]);
-        int n = Integer.parseInt(in.readLine());
+        String line = in.readLine();
+        line = line.replace(" ", "");
+        int n = Integer.parseInt(line);
         data = new Point[n];
         sorted_data = new Point[n];
         int i = 0;
         while (i < n) {
-            String line = in.readLine();
+            line = in.readLine();
             if ((line == null) || line.equals("")) {
                 continue;
             }
@@ -129,6 +129,7 @@ public class Fast {
             i++;
         }
         findAndPrint();
+        StdOut.print("Done");
     }
 
 }
