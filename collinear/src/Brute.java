@@ -7,7 +7,7 @@ public class Brute {
 
     private static Point[] data;
 
-    private static void find_and_print() {
+    private static void findAndPrint() {
         for (int i = 0; i < data.length; i++) {
             for (int j = i + 1; j < data.length; j++) {
                 for (int k = j + 1; k < data.length; k++) {
@@ -68,7 +68,7 @@ public class Brute {
             String str = in.readLine();
             data[i] = parse(str);
         }
-        find_and_print();
+        findAndPrint();
     }
 
 }

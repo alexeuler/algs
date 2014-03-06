@@ -103,21 +103,10 @@
       <file leaf-file-name="Fast.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Fast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="29" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.6875" vertical-offset="528" max-vertical-offset="3740">
+            <state line="117" column="19" selection-start="3290" selection-end="3290" vertical-scroll-proportion="0.78515625" vertical-offset="2172" max-vertical-offset="3740">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#252#265#0" expanded="true" />
-                <element signature="e#2785#2792#0" expanded="true" />
+                <element signature="e#2727#2734#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArrayList.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/ArrayList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="390" column="26" selection-start="14490" selection-end="14490" vertical-scroll-proportion="0.0" vertical-offset="7719" max-vertical-offset="25410">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -134,7 +123,7 @@
       <file leaf-file-name="Brute.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Brute.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="33" selection-start="2095" selection-end="2095" vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1760">
+            <state line="70" column="16" selection-start="2120" selection-end="2120" vertical-scroll-proportion="-11.230769" vertical-offset="1248" max-vertical-offset="1760">
               <folding />
             </state>
           </provider>
@@ -259,7 +248,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.6x6">
+  <component name="RunManager" selected="Application.Equidistant">
     <configuration default="false" name="Brute" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Brute" />
       <option name="VM_PARAMETERS" value="" />
@@ -577,15 +566,36 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
-    <list size="8">
+    <configuration default="false" name="Equidistant" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Fast" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="equidistant.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="collinear" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <list size="9">
       <item index="0" class="java.lang.String" itemvalue="Application.128" />
       <item index="1" class="java.lang.String" itemvalue="Application.Input6" />
       <item index="2" class="java.lang.String" itemvalue="Application.6x6" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Brute" />
-      <item index="4" class="java.lang.String" itemvalue="Application.256" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.FastTest.testInput8" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.FastTest.testInput6" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.FastTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Equidistant" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Brute" />
+      <item index="5" class="java.lang.String" itemvalue="Application.256" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.FastTest.testInput8" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.FastTest.testInput6" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.FastTest" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -685,9 +695,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="107" column="24" selection-start="2962" selection-end="2962" vertical-scroll-proportion="0.0" vertical-offset="2354" max-vertical-offset="3256">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -703,9 +711,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="113" column="20" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="3102">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -721,9 +727,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="121" column="27" selection-start="3387" selection-end="3387" vertical-scroll-proportion="0.0" vertical-offset="2662" max-vertical-offset="2992">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -746,9 +750,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="117" column="0" selection-start="3204" selection-end="3277" vertical-scroll-proportion="0.0" vertical-offset="2574" max-vertical-offset="3014">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -776,9 +778,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="17" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0" vertical-offset="1078" max-vertical-offset="2816">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -820,9 +820,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="26" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.0" vertical-offset="1386" max-vertical-offset="2662">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -857,9 +855,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="9" selection-start="2104" selection-end="2104" vertical-scroll-proportion="0.0" vertical-offset="1332" max-vertical-offset="1870">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -998,13 +994,6 @@
         <state line="64" column="0" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.6319703" vertical-offset="562" max-vertical-offset="1100" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Brute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="33" selection-start="2095" selection-end="2095" vertical-scroll-proportion="0.0" vertical-offset="1046" max-vertical-offset="1760">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="10" selection-start="2758" selection-end="2758" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="2222">
@@ -1019,13 +1008,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Brute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="16" selection-start="2120" selection-end="2120" vertical-scroll-proportion="-11.230769" vertical-offset="1248" max-vertical-offset="1760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="29" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.6875" vertical-offset="528" max-vertical-offset="3740">
+        <state line="117" column="19" selection-start="3290" selection-end="3290" vertical-scroll-proportion="0.78515625" vertical-offset="2172" max-vertical-offset="3740">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#265#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
+            <element signature="e#2727#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>

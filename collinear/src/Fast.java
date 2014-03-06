@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -7,12 +6,12 @@ import java.util.Arrays;
 public class Fast {
 
     private static Point[] data;
-    private static Point[] sorted_data;
-    private static List<List<Point>> lines = new List<List<Point>>();
+    private static Point[] sortedData;
+    private static List<List<Point>> lines;
 
     private static class List<Item extends Comparable<Item>> implements Comparable<List<Item>> {
-        public Object[] data;
-        public int size;
+        private Object[] data;
+        private int size;
 
         public List() {
             data = new Object[4];
@@ -82,7 +81,7 @@ public class Fast {
 
     private static void findAndPrint() {
         for (Point p : data) {
-            Arrays.sort(sorted_data, p.SLOPE_ORDER);
+            Arrays.sort(sortedData, p.SLOPE_ORDER);
             findCollinear(p);
         }
         printLines();
@@ -90,31 +89,32 @@ public class Fast {
 
     private static void findCollinear(Point p) {
         int n = 1;
-        double slope = p.slopeTo(sorted_data[0]);
-        for (int i = 1; i < sorted_data.length + 1; i++) {
-            if ((i != sorted_data.length) && (p.slopeTo(sorted_data[i]) == slope)) {
+        double slope = p.slopeTo(sortedData[0]);
+        for (int i = 1; i < sortedData.length + 1; i++) {
+            if ((i != sortedData.length) && (p.slopeTo(sortedData[i]) == slope)) {
                 n++;
                 continue;
             } else {
                 if (n >= 3) {
                     List<Point> collinear = new List<Point>();
                     for (int j = 0; j < n; j++) {
-                        collinear.push(sorted_data[i - 1 - j]);
+                        collinear.push(sortedData[i - 1 - j]);
                     }
                     collinear.push(p);
                     collinear.sort();
                     lines.push(collinear);
                 }
                 n = 1;
-                if (i != sorted_data.length) {
-                    slope = p.slopeTo(sorted_data[i]);
+                if (i != sortedData.length) {
+                    slope = p.slopeTo(sortedData[i]);
                 }
-                ;
             }
         }
     }
 
     private static void printLines() {
+        if (lines.size == 0)
+            return;
         lines.sort();
         List<Point> a = lines.get(0);
         printLine(a);
@@ -139,6 +139,7 @@ public class Fast {
     }
 
     public static void main(String[] args) {
+        lines = new List<List<Point>>();
         StdDraw.setXscale(0, 32768);
         StdDraw.setYscale(0, 32768);
         In in = new In(args[0]);
@@ -146,7 +147,7 @@ public class Fast {
         line = line.replace(" ", "");
         int n = Integer.parseInt(line);
         data = new Point[n];
-        sorted_data = new Point[n];
+        sortedData = new Point[n];
         int i = 0;
         while (i < n) {
             line = in.readLine();
@@ -154,11 +155,10 @@ public class Fast {
                 continue;
             }
             data[i] = parse(line);
-            sorted_data[i] = data[i];
+            sortedData[i] = data[i];
             i++;
         }
         findAndPrint();
-        StdOut.print("Done");
     }
 
 }
