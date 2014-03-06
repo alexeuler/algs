@@ -70,6 +70,23 @@
         <option name="CONDITION_ENABLED" value="true" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+      <breakpoint class_name="java.lang.ClassCastException" package_name="java.lang">
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
@@ -86,7 +103,29 @@
       <file leaf-file-name="Fast.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Fast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="24" selection-start="2970" selection-end="2970" vertical-scroll-proportion="0.47265625" vertical-offset="2112" max-vertical-offset="3102">
+            <state line="40" column="29" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.6875" vertical-offset="528" max-vertical-offset="3740">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#252#265#0" expanded="true" />
+                <element signature="e#2785#2792#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="390" column="26" selection-start="14490" selection-end="14490" vertical-scroll-proportion="0.0" vertical-offset="7719" max-vertical-offset="25410">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Point.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Point.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="10" selection-start="2758" selection-end="2758" vertical-scroll-proportion="0.0" vertical-offset="2090" max-vertical-offset="2442">
               <folding />
             </state>
           </provider>
@@ -151,6 +190,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -185,8 +226,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,7 +259,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.256">
+  <component name="RunManager" selected="Application.6x6">
     <configuration default="false" name="Brute" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Brute" />
       <option name="VM_PARAMETERS" value="" />
@@ -493,16 +532,60 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Input6" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Fast" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="input6.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="collinear" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
-    <list size="6">
+    <configuration default="false" name="6x6" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Fast" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="grid6x6.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="collinear" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Application.128" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Brute" />
-      <item index="2" class="java.lang.String" itemvalue="Application.256" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.FastTest.testInput8" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.FastTest.testInput6" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.FastTest" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Input6" />
+      <item index="2" class="java.lang.String" itemvalue="Application.6x6" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Brute" />
+      <item index="4" class="java.lang.String" itemvalue="Application.256" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.FastTest.testInput8" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.FastTest.testInput6" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.FastTest" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -569,8 +652,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -600,8 +683,30 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="20" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="3102">
+        <state line="107" column="24" selection-start="2962" selection-end="2962" vertical-scroll-proportion="0.0" vertical-offset="2354" max-vertical-offset="3256">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Brute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="33" selection-start="2095" selection-end="2095" vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1760">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="20" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="3102">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -615,7 +720,11 @@
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="121" column="27" selection-start="3387" selection-end="3387" vertical-scroll-proportion="0.0" vertical-offset="2662" max-vertical-offset="2992">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -636,7 +745,11 @@
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="117" column="0" selection-start="3204" selection-end="3277" vertical-scroll-proportion="0.0" vertical-offset="2574" max-vertical-offset="3014">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -656,15 +769,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="17" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1782">
-          <folding />
-        </state>
+        <state line="30" column="17" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1782" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="17" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0" vertical-offset="1078" max-vertical-offset="2816">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -698,15 +813,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="33" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="1738">
-          <folding />
-        </state>
+        <state line="11" column="33" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="1738" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="26" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.0" vertical-offset="1386" max-vertical-offset="2662">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -726,9 +843,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="33" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1782">
-          <folding />
-        </state>
+        <state line="2" column="33" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1782" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Point.java">
@@ -741,7 +856,11 @@
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="9" selection-start="2104" selection-end="2104" vertical-scroll-proportion="0.0" vertical-offset="1332" max-vertical-offset="1870">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -754,9 +873,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="18" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1782">
-          <folding />
-        </state>
+        <state line="16" column="18" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1782" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Brute.java">
@@ -775,9 +892,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1254">
-          <folding />
-        </state>
+        <state line="15" column="42" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1254" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.10.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
@@ -863,21 +978,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="27" selection-start="358" selection-end="358" vertical-scroll-proportion="-0.85873604" vertical-offset="726" max-vertical-offset="1760">
-          <folding />
-        </state>
+        <state line="14" column="27" selection-start="358" selection-end="358" vertical-scroll-proportion="-0.85873604" vertical-offset="726" max-vertical-offset="1760" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/ComparableTimSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="231" column="25" selection-start="8276" selection-end="8276" vertical-scroll-proportion="0.0" vertical-offset="4265" max-vertical-offset="19316" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="10" selection-start="2758" selection-end="2758" vertical-scroll-proportion="3.4739778" vertical-offset="1" max-vertical-offset="2222">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/lang/Integer.java">
@@ -899,10 +1005,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="10" selection-start="2758" selection-end="2758" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="2222">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="390" column="26" selection-start="14490" selection-end="14490" vertical-scroll-proportion="0.0" vertical-offset="7719" max-vertical-offset="25410">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="24" selection-start="2970" selection-end="2970" vertical-scroll-proportion="0.47265625" vertical-offset="2112" max-vertical-offset="3102">
-          <folding />
+        <state line="40" column="29" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.6875" vertical-offset="528" max-vertical-offset="3740">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#265#0" expanded="true" />
+            <element signature="e#2785#2792#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
