@@ -110,6 +110,32 @@ public class BoardTest {
 
         assertEquals(neighbors[0], new Board(new int[][]{{1, 2, 3}, {0, 5, 6}, {4, 7, 8}}));
         assertEquals(neighbors[1], new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}}));
+
+        blocks = new int[][]{{1, 2, 3}, {4, 5, 6}, { 7, 8, 0}};
+        board = new Board(blocks);
+
+        neighbors = new Board[2];
+        i = 0;
+        for (Board b : board.neighbors()) {
+            neighbors[i++] = b;
+        }
+
+        assertEquals(neighbors[0], new Board(new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}}));
+        assertEquals(neighbors[1], new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}}));
+
+        blocks = new int[][]{{1, 2, 0}, {4, 5, 6}, { 7, 8, 9}};
+        board = new Board(blocks);
+
+        neighbors = new Board[2];
+        i = 0;
+        for (Board b : board.neighbors()) {
+            neighbors[i++] = b;
+        }
+
+        assertEquals(neighbors[0], new Board(new int[][]{{1, 2, 6}, {4, 5, 0}, {7, 8, 9}}));
+        assertEquals(neighbors[1], new Board(new int[][]{{1, 0, 2}, {4, 5, 6}, {7, 8, 9}}));
+
+
     }
 
     @Test
@@ -119,6 +145,15 @@ public class BoardTest {
 
         b = new Board(new int[][]{{0, 1, 2}, {3, 4, 5}, {6, 7, 8}});
         assertEquals(b.twin(), new Board(new int[][]{{0, 1, 2}, {4, 3, 5}, {6, 7, 8}}));
-
     }
+
+    @Test
+    public void testEquals() throws Exception {
+        Board b = new Board(new int[][]{{1, 2, 3}, {5, 4, 6}, {7, 8, 0}});
+        Board c = new Board(new int[][]{{1, 2, 3}, {5, 4, 6}, {7, 8, 0}});
+        Board d = new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}});
+        assertTrue(b.equals(c));
+        assertFalse(b.equals(d));
+    }
+
 }

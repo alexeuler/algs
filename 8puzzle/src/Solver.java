@@ -9,15 +9,19 @@ public class Solver {
     private boolean solvable;
     private MinPQ<Node> queue;
     private MinPQ<Node> queueTwin;
+    private SET<String> boardSet;
+    private SET<String> boardSetTwin;
 
     public Solver(Board current) {
         Node currentNode = new Node(current, null, 0);
         Node currentTwin = new Node(current.twin(), null, 0);
         queue = new MinPQ<Node>();
         queueTwin = new MinPQ<Node>();
+        boardSet = new SET<String>();
+        boardSetTwin = new SET<String>();
         while ((!currentNode.board.isGoal()) && (!currentTwin.board.isGoal())) {
-            makeMove(currentNode, queue);
-            makeMove(currentTwin, queueTwin);
+            makeMove(currentNode, queue, boardSet);
+            makeMove(currentTwin, queueTwin, boardSetTwin);
             currentNode = queue.delMin();
             currentTwin = queueTwin.delMin();
         }
@@ -66,11 +70,14 @@ public class Solver {
         }
     }
 
-    private void makeMove(Node node, MinPQ<Node> queue) {
+    private void makeMove(Node node, MinPQ<Node> queue, SET<String> set) {
         for (Board neighbor : node.board.neighbors()) {
+            if (set.contains(neighbor.toString()))
+                continue;
             if ((node.prev == null) || (!neighbor.equals(node.prev.board))) {
                 Node newNode = new Node(neighbor, node, node.moves + 1);
                 queue.insert(newNode);
+                set.add(neighbor.toString());
             }
         }
     }
@@ -116,19 +123,23 @@ public class Solver {
         public Board board;
         public Node prev;
         public int moves;
+        private int priority;
 
         public Node(Board initBoard, Node initPrev, int initMoves) {
             moves = initMoves;
             prev = initPrev;
             board = initBoard;
+            priority = -1;
         }
 
         public String toString() {
-            return board.toString();
+            return board.toString() + "Priority: " + priority() + " Moves:" + moves;
         }
 
         public int priority() {
-            return moves + board.hamming();
+            if (priority == -1)
+                priority = moves + board.manhattan();
+            return priority;
         }
 
         public int compareTo(Node that) {

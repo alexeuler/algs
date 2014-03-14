@@ -6,6 +6,10 @@ import java.util.Iterator;
 public class Board {
 
     private int[][] blocks;
+    private int hamming;
+    private int manhattan;
+    private Iterable<Board> neighbors;
+    private String textView;
 
     public Board(int[][] initBlocks) {
         if (initBlocks.length < 2) throw new IllegalArgumentException();
@@ -14,6 +18,8 @@ public class Board {
         for (int i = 0; i < length; i++)
             for (int j = 0; j < length; j++)
                 blocks[i][j] = initBlocks[i][j];
+        hamming = -1;
+        manhattan = -1;
     }
 
     public int dimension() {
@@ -21,25 +27,15 @@ public class Board {
     }
 
     public int hamming() {
-        int res = 0;
-        for (int i = 0; i < dimension(); i++)
-            for (int j = 0; j < dimension(); j++) {
-                int val = blocks[i][j];
-                if (val == 0) continue;
-                if ((i != solutionPosition(val)[0]) || (j != solutionPosition(val)[1])) res++;
-            }
-        return res;
+        if (hamming == -1)
+            hamming = calc_hamming();
+        return hamming;
     }
 
     public int manhattan() {
-        int res = 0;
-        for (int i = 0; i < dimension(); i++)
-            for (int j = 0; j < dimension(); j++) {
-                int val = blocks[i][j];
-                if (val == 0) continue;
-                res += Math.abs(i - solutionPosition(val)[0]) + Math.abs(j - solutionPosition(val)[1]);
-            }
-        return res;
+        if (manhattan == -1)
+            manhattan = calc_manhattan();
+        return manhattan;
     }
 
     public boolean isGoal() {
@@ -60,10 +56,18 @@ public class Board {
     }
 
     public Iterable<Board> neighbors() {
-        return new Neighbors();
+        if (neighbors == null)
+            neighbors = new Neighbors();
+        return neighbors;
     }
 
     public String toString() {
+        if (textView == null)
+            textView = calcTextView();
+        return textView;
+    }
+
+    private String calcTextView() {
         StringBuilder s = new StringBuilder();
         s.append(dimension() + "\n");
         for (int i = 0; i < dimension(); i++) {
@@ -75,6 +79,29 @@ public class Board {
         return s.toString();
     }
 
+    private int calc_hamming() {
+        int res = 0;
+        for (int i = 0; i < dimension(); i++)
+            for (int j = 0; j < dimension(); j++) {
+                int val = blocks[i][j];
+                if (val == 0) continue;
+                if ((i != solutionPosition(val)[0]) || (j != solutionPosition(val)[1])) res++;
+            }
+        return res;
+    }
+
+    private int calc_manhattan() {
+        int res = 0;
+        for (int i = 0; i < dimension(); i++)
+            for (int j = 0; j < dimension(); j++) {
+                int val = blocks[i][j];
+                if (val == 0) continue;
+                res += Math.abs(i - solutionPosition(val)[0]) + Math.abs(j - solutionPosition(val)[1]);
+            }
+        return res;
+    }
+
+
     // val != 0 assumed
     private int[] solutionPosition(int val) {
         if (val == 0) throw new IllegalArgumentException();
@@ -84,15 +111,20 @@ public class Board {
         return result;
     }
 
+    private boolean isOutOfBounds(int x) {
+        return (x < 0) || (x >= dimension());
+    }
+
     private Board swap(int[] x, int[] y) {
-        int[][] newBlocks = new int[dimension()][dimension()];
-        for (int i = 0; i < dimension(); i++)
-            for (int j = 0; j < dimension(); j++) {
-                newBlocks[i][j] = blocks[i][j];
-            }
-        newBlocks[x[0]][x[1]] = blocks[y[0]][y[1]];
-        newBlocks[y[0]][y[1]] = blocks[x[0]][x[1]];
-        Board newBoard = new Board(newBlocks);
+        if (isOutOfBounds(x[0]) || isOutOfBounds(x[1]) || isOutOfBounds(y[0]) || isOutOfBounds(y[1]))
+            return null;
+        int temp = blocks[x[0]][x[1]];
+        blocks[x[0]][x[1]] = blocks[y[0]][y[1]];
+        blocks[y[0]][y[1]] = temp;
+        Board newBoard = new Board(blocks);
+        temp = blocks[x[0]][x[1]];
+        blocks[x[0]][x[1]] = blocks[y[0]][y[1]];
+        blocks[y[0]][y[1]] = temp;
         return newBoard;
     }
 
@@ -107,14 +139,11 @@ public class Board {
                 for (int j = 0; j < dimension(); j++) {
                     if (blocks[i][j] == 0) {
                         int[] x = new int[]{i, j};
-                        if (i - 1 >= 0)
-                            data[size++] = swap(x, new int[]{i - 1, j});
-                        if (j + 1 < dimension())
-                            data[size++] = swap(x, new int[]{i, j + 1});
-                        if (i + 1 < dimension())
-                            data[size++] = swap(x, new int[]{i + 1, j});
-                        if (j - 1 >= 0)
-                            data[size++] = swap(x, new int[]{i, j - 1});
+                        if ((data[size] = swap(x, new int[]{i - 1, j})) != null) size++;
+                        if ((data[size] = swap(x, new int[]{i, j + 1})) != null) size++;
+                        if ((data[size] = swap(x, new int[]{i + 1, j})) != null) size++;
+                        if ((data[size] = swap(x, new int[]{i, j - 1})) != null) size++;
+                        return;
                     }
                 }
         }
