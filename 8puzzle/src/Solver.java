@@ -72,12 +72,12 @@ public class Solver {
 
     private void makeMove(Node node, MinPQ<Node> queue, SET<String> set) {
         for (Board neighbor : node.board.neighbors()) {
-            if (set.contains(neighbor.toString()))
-                continue;
+            //if (set.contains(neighbor.toString()))
+                //continue;
             if ((node.prev == null) || (!neighbor.equals(node.prev.board))) {
                 Node newNode = new Node(neighbor, node, node.moves + 1);
                 queue.insert(newNode);
-                set.add(neighbor.toString());
+                //set.add(neighbor.toString());
             }
         }
     }

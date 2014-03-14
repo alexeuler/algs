@@ -9,7 +9,6 @@ public class Board {
     private int hamming;
     private int manhattan;
     private Iterable<Board> neighbors;
-    private String textView;
 
     public Board(int[][] initBlocks) {
         if (initBlocks.length < 2) throw new IllegalArgumentException();
@@ -52,7 +51,11 @@ public class Board {
         if (y == null) return false;
         if (this.getClass() != y.getClass()) return false;
         Board board = (Board) y;
-        return this.toString().equals(board.toString());
+        if (board.dimension()!=this.dimension()) return false;
+        for (int i = 0; i<dimension(); i++)
+            for (int j=0; j<dimension();j++)
+                if (blocks[i][j]!=board.blocks[i][j]) return false;
+        return true;
     }
 
     public Iterable<Board> neighbors() {
@@ -62,12 +65,6 @@ public class Board {
     }
 
     public String toString() {
-        if (textView == null)
-            textView = calcTextView();
-        return textView;
-    }
-
-    private String calcTextView() {
         StringBuilder s = new StringBuilder();
         s.append(dimension() + "\n");
         for (int i = 0; i < dimension(); i++) {

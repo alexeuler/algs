@@ -12,7 +12,6 @@ public class BoardTest {
 
     }
 
-
     @Test
     public void testDimension() throws Exception {
         int[][] blocks = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
