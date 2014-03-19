@@ -4,7 +4,7 @@ import java.util.TreeSet;
  * Created by Алексей Карасев on 18.03.14.
  */
 public class PointSET {
-    TreeSet<Point2D> points;
+    private TreeSet<Point2D> points;
 
     public PointSET() {
         points = new TreeSet<Point2D>();

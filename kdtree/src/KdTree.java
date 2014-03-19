@@ -23,7 +23,6 @@ public class KdTree {
         Node current = top;
         Node prev = null;
         boolean horizontal = false;
-
         while (current != null) {
             horizontal = !horizontal;
             prev = current;
@@ -41,10 +40,22 @@ public class KdTree {
             else
                 prev.rt = new Node(point, prev.getRTRect(), horizontal);
         }
+
+        size++;
     }
 
     public boolean contains(Point2D point) {
-        return true;
+        Node current = top;
+        boolean horizontal = false;
+        while (current != null) {
+            horizontal = !horizontal;
+            if (current.point.equals(point)) return true;
+            if (less(point, current.point, horizontal))
+                current = current.lb;
+            else
+                current = current.rt;
+        }
+        return false;
     }
 
     // draw all of the points to standard draw
@@ -121,7 +132,7 @@ public class KdTree {
         }
 
         public String toString() {
-            return "Point: "+node.toString()+"   Distance: "+distance;
+            return "Point: " + node.toString() + "   Distance: " + distance;
         }
     }
 
@@ -142,6 +153,7 @@ public class KdTree {
         public String toString() {
             return point.toString();
         }
+
         public RectHV getLBRect() {
             if (!horizontal)
                 return new RectHV(rect.xmin(), rect.ymin(), point.x(), rect.ymax());
