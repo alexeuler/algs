@@ -10,7 +10,7 @@
 
 public class KdTreeVisualizer {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         StdDraw.show(0);
         KdTree kdtree = new KdTree();
         while (true) {
@@ -22,6 +22,7 @@ public class KdTreeVisualizer {
                 kdtree.insert(p);
                 StdDraw.clear();
                 kdtree.draw();
+                Thread.sleep(100);
             }
             StdDraw.show(50);
         }

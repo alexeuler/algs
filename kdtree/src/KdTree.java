@@ -26,9 +26,8 @@ public class KdTree {
     public void insert(Point2D point) {
         Node current = top;
         Node prev = null;
-        boolean horizontal = true;
-        int level = 0;
-        
+        boolean horizontal = false;
+
         while (current != null) {
             horizontal = !horizontal;
             prev = current;
@@ -41,7 +40,7 @@ public class KdTree {
         if (prev == null)
             top = new Node(point, new RectHV(0,0,1,1), false);
         else {
-            if (less(point, current.point, horizontal))
+            if (less(point, prev.point, horizontal))
                 prev.lb = new Node(point, prev.getLBRect(), horizontal);
             else
                 prev.rt = new Node(point, prev.getRTRect(), horizontal);
@@ -69,7 +68,7 @@ public class KdTree {
     }
 
     private boolean less(Point2D p1, Point2D p2, boolean horizontal) {
-        if (horizontal == true) {
+        if (horizontal) {
             if (p1.x() < p2.x()) return true;
             else return false;
         }
@@ -120,10 +119,12 @@ public class KdTree {
             point.draw();
 
             if (horizontal) {
+                StdDraw.setPenRadius(.005);
                 StdDraw.setPenColor(StdDraw.BLUE);
                 StdDraw.line(rect.xmin(), point.y(), rect.xmax(), point.y());
             }
             else {
+                StdDraw.setPenRadius(.005);
                 StdDraw.setPenColor(StdDraw.RED);
                 StdDraw.line(point.x(), rect.ymin(), point.x(), rect.ymax());
             }
