@@ -59,6 +59,7 @@ public class RangeSearchVisualizer {
             else if (StdDraw.mousePressed() && isDragging) {
                 x1 = StdDraw.mouseX();
                 y1 = StdDraw.mouseY();
+                System.out.printf("(%2f, %2f) - (%2f, %2f)\n", x0, y0, x1, y1);
                 continue;
             }
 

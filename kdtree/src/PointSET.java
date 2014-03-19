@@ -28,7 +28,7 @@ public class PointSET {
 
     // draw all of the points to standard draw
     public void draw() {
-        for (Point2D p:points) {
+        for (Point2D p : points) {
             p.draw();
         }
     }
@@ -36,19 +36,19 @@ public class PointSET {
     // all points in the set that are inside the rectangle
     public Iterable<Point2D> range(RectHV rect) {
         Stack<Point2D> stack = new Stack<Point2D>();
-        for (Point2D p: points) {
+        for (Point2D p : points) {
             if (rect.contains(p))
                 stack.push(p);
         }
-        return  stack;
+        return stack;
     }
 
     // a nearest neighbor in the set to p; null if set is empty
-    public Point2D nearest(Point2D point)  {
+    public Point2D nearest(Point2D point) {
         double min = 20; // at 0,1 scale max squared distance is 2
         double dist;
         Point2D result = null;
-        for (Point2D p: points) {
+        for (Point2D p : points) {
             if ((dist = point.distanceSquaredTo(p)) < min) {
                 result = p;
                 min = dist;

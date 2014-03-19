@@ -1,7 +1,3 @@
-import org.omg.CORBA._PolicyStub;
-
-import java.util.TreeSet;
-
 /**
  * Created by Алексей Карасев on 18.03.14.
  */
@@ -38,7 +34,7 @@ public class KdTree {
         }
 
         if (prev == null)
-            top = new Node(point, new RectHV(0,0,1,1), false);
+            top = new Node(point, new RectHV(0, 0, 1, 1), false);
         else {
             if (less(point, prev.point, horizontal))
                 prev.lb = new Node(point, prev.getLBRect(), horizontal);
@@ -59,30 +55,74 @@ public class KdTree {
 
     // all points in the set that are inside the rectangle
     public Iterable<Point2D> range(RectHV rect) {
-        return null;
+        Stack<Point2D> result = new Stack<Point2D>();
+        findRange(top, rect, result);
+        return result;
     }
 
     // a nearest neighbor in the set to p; null if set is empty
     public Point2D nearest(Point2D point) {
-        return null;
+        return findNearest(top, point).node.point;
+    }
+
+    private OptimalNode findNearest(Node current, Point2D subject) {
+        if (current == null) return new OptimalNode(null, 20); //1x1 coords assumed
+        double dist = current.point.distanceSquaredTo(subject);
+        OptimalNode minNode = less(current.point, subject, current.horizontal) ? findNearest(current.lb, subject) : findNearest(current.rt, subject);
+        double distToLine = current.horizontal ? Math.pow(subject.y() - current.point.y(), 2) : Math.pow(subject.x() - current.point.x(), 2);
+        if (distToLine < minNode.distance) {
+            OptimalNode twinNode = !less(current.point, subject, current.horizontal) ? findNearest(current.lb, subject) : findNearest(current.rt, subject);
+            if (twinNode.distance < minNode.distance) minNode = twinNode;
+        }
+        if (dist < minNode.distance)
+            return new OptimalNode(current, dist);
+        else
+            return minNode;
+    }
+
+    private void findRange(Node current, RectHV rect, Stack<Point2D> result) {
+        if (current == null) return;
+        Point2D point = current.point;
+        if (rect.contains(point))
+            result.push(point);
+        if (current.horizontal) {
+            if (rect.ymax() >= point.y()) findRange(current.rt, rect, result);
+            if (rect.ymin() <= point.y()) findRange(current.lb, rect, result);
+        } else {
+            if (rect.xmax() >= point.x()) findRange(current.rt, rect, result);
+            if (rect.xmin() <= point.x()) findRange(current.lb, rect, result);
+        }
     }
 
     private boolean less(Point2D p1, Point2D p2, boolean horizontal) {
         if (horizontal) {
             if (p1.x() < p2.x()) return true;
             else return false;
-        }
-        else {
+        } else {
             if (p1.y() < p2.y()) return true;
             else return false;
         }
     }
 
     private void drawTree(Node n) {
-        if (n==null) return;
+        if (n == null) return;
         n.draw();
         drawTree(n.lb);
         drawTree(n.rt);
+    }
+
+    private class OptimalNode {
+        public Node node;
+        public double distance;
+
+        public OptimalNode(Node node, double distance) {
+            this.node = node;
+            this.distance = distance;
+        }
+
+        public String toString() {
+            return "Point: "+node.toString()+"   Distance: "+distance;
+        }
     }
 
     private class Node {
@@ -99,6 +139,9 @@ public class KdTree {
             horizontal = h;
         }
 
+        public String toString() {
+            return point.toString();
+        }
         public RectHV getLBRect() {
             if (!horizontal)
                 return new RectHV(rect.xmin(), rect.ymin(), point.x(), rect.ymax());
@@ -122,8 +165,7 @@ public class KdTree {
                 StdDraw.setPenRadius(.005);
                 StdDraw.setPenColor(StdDraw.BLUE);
                 StdDraw.line(rect.xmin(), point.y(), rect.xmax(), point.y());
-            }
-            else {
+            } else {
                 StdDraw.setPenRadius(.005);
                 StdDraw.setPenColor(StdDraw.RED);
                 StdDraw.line(point.x(), rect.ymin(), point.x(), rect.ymax());
