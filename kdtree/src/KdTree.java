@@ -24,6 +24,7 @@ public class KdTree {
         Node prev = null;
         boolean horizontal = false;
         while (current != null) {
+            if (current.point.equals(point)) return;
             horizontal = !horizontal;
             prev = current;
             if (less(point, current.point, horizontal))
@@ -73,16 +74,22 @@ public class KdTree {
 
     // a nearest neighbor in the set to p; null if set is empty
     public Point2D nearest(Point2D point) {
-        return findNearest(top, point).node.point;
+        if (top == null) return null;
+        Point2D res = findNearest(top, point).node.point;
+        return res;
     }
 
     private OptimalNode findNearest(Node current, Point2D subject) {
         if (current == null) return new OptimalNode(null, 20); //1x1 coords assumed
+        if (current.point.equals(subject)) return new OptimalNode(new Node(subject, new RectHV(0, 0, 1, 1), false), 0);
+        double lbDist = current.getLBRect().distanceSquaredTo(subject);
+        double rtDist = current.getRTRect().distanceSquaredTo(subject);
+        boolean less = lbDist < rtDist;
+        double distToLine = less ? rtDist : lbDist;
         double dist = current.point.distanceSquaredTo(subject);
-        OptimalNode minNode = less(current.point, subject, current.horizontal) ? findNearest(current.lb, subject) : findNearest(current.rt, subject);
-        double distToLine = current.horizontal ? Math.pow(subject.y() - current.point.y(), 2) : Math.pow(subject.x() - current.point.x(), 2);
+        OptimalNode minNode = less ? findNearest(current.lb, subject) : findNearest(current.rt, subject);
         if (distToLine < minNode.distance) {
-            OptimalNode twinNode = !less(current.point, subject, current.horizontal) ? findNearest(current.lb, subject) : findNearest(current.rt, subject);
+            OptimalNode twinNode = !less ? findNearest(current.lb, subject) : findNearest(current.rt, subject);
             if (twinNode.distance < minNode.distance) minNode = twinNode;
         }
         if (dist < minNode.distance)
