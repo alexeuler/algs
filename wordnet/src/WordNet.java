@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.LinkedList;
 
 /**
  * Created by Алексей Карасев on 27.03.14.
  */
 public class WordNet {
+    private static final int INFINITY = Integer.MAX_VALUE;
     private Hashtable<String, Integer> dictionary;
     private ArrayList<String> synsets;
     private Digraph graph;
@@ -43,14 +45,19 @@ public class WordNet {
         Integer idA = dictionary.get(nounA);
         Integer idB = dictionary.get(nounB);
         if ((idA == null) || (idB == null)) throw new java.lang.IllegalArgumentException();
-        BreadthFirstDirectedPaths bfs = new BreadthFirstDirectedPaths(graph, idA);
-        return bfs.distTo(idB);
+        SAP sap = new SAP(graph);
+        return sap.length(idA, idB);
     }
 
     // a synset (second field of synsets.txt) that is the common ancestor of nounA and nounB
     // in a shortest ancestral path
     public String sap(String nounA, String nounB) {
-        return synsets.get(0);
+        Integer idA = dictionary.get(nounA);
+        Integer idB = dictionary.get(nounB);
+        if ((idA == null) || (idB == null)) throw new java.lang.IllegalArgumentException();
+        SAP sap = new SAP(graph);
+        int id_synset = sap.ancestor(idA, idB);
+        return synsets.get(id_synset);
     }
 
 }
